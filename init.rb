@@ -1,10 +1,11 @@
-class Heroku::Command::Adminium < BaseWithApp
+class Heroku::Command::Adminium < Heroku::Command::Base
     
   def initialize(*args)
     super
     @config_vars = api.get_config_vars(app).body
     @adminium_url = @config_vars["ADMINIUM_URL"]
     abort " !   Please add the adminium addon first." unless @adminium_url
+    require 'rest_client'
   end
 
   def index
