@@ -1,4 +1,4 @@
-class Heroku::Command::Adminium < Heroku::Command::Base
+class Heroku::Command::Adminium < BaseWithApp
     
   def initialize(*args)
     super
