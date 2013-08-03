@@ -21,7 +21,7 @@ class Heroku::Command::Adminium < Heroku::Command::Base
     answer = STDIN.gets
     if ['yes', 'y'].include? answer.chomp.downcase
       if db_urls.empty?
-        puts "We did not find any DATABASE_URL for your application, please provide it manually on our addon web page"
+        puts "We did not find any DATABASE_URL for your application, please provide it manually on our add-on web page"
       else
         if db_urls.length > 1
           puts "We found several database urls you may want to connect to, please choose one :"
@@ -48,8 +48,8 @@ class Heroku::Command::Adminium < Heroku::Command::Base
       if @config_vars.has_key?(key) && !@db_urls.map{|d| d[:value]}.include?( @config_vars[key])
         @db_urls << {:key => key, :value => @config_vars[key]}
       end
-      @db_urls
     end
+    @db_urls
   end
 
 end
